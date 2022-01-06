@@ -1,10 +1,13 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createNavigationContainerRef, NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { useQuery } from '@redux-requests/react';
 import React, { memo } from 'react';
 import { Linking } from 'react-native';
-import ExampleScreen from 'src/screens/ExampleScreen';
+import Login from 'src/screens/Login';
+import { loginTablet } from 'store/apiActions/Auth';
 import { SCREEN_NAME } from 'utils/constants';
+import ExampleScreen from './screens/ExampleScreen';
 
 const Stack = createStackNavigator();
 
@@ -27,6 +30,8 @@ export const navigationReset = (name: string, params: object | undefined) => {
 
 const PERSISTENCE_KEY = `navigationState.000`;
 const AppStack = memo(() => {
+	const { data = {} }: any = useQuery({ type: loginTablet });
+
 	const [isReady, setIsReady] = React.useState(false);
 	const [initialState, setInitialState] = React.useState();
 
@@ -52,7 +57,6 @@ const AppStack = memo(() => {
 	}, [isReady]);
 
 	if (!isReady) return null;
-
 	return (
 		<NavigationContainer
 			ref={navigationRef}
@@ -60,9 +64,15 @@ const AppStack = memo(() => {
 			onStateChange={(state: any) =>
 				AsyncStorage.setItem(PERSISTENCE_KEY, JSON.stringify(state))
 			}>
-			<Stack.Navigator>
-				<Stack.Screen name={SCREEN_NAME.EXAMPLE} component={ExampleScreen} />
-			</Stack.Navigator>
+			{!data ? (
+				<Stack.Navigator screenOptions={{ headerShown: false }}>
+					<Stack.Screen name={SCREEN_NAME.LOGIN} component={Login} />
+				</Stack.Navigator>
+			) : (
+				<Stack.Navigator screenOptions={{ headerShown: false }}>
+					<Stack.Screen name={SCREEN_NAME.EXAMPLE} component={ExampleScreen} />
+				</Stack.Navigator>
+			)}
 		</NavigationContainer>
 	);
 });

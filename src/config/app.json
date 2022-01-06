@@ -1,0 +1,88 @@
+{
+	"product": "Qathena",
+	"mobileProduct": "Order Guru",
+	"buildTime": 202201061148,
+	"appVersion": "1.8.5",
+	"buildNumber": 455,
+	"termsOfServiceUrl": "https://orderguru.app/terms-of-service?option=hideNavBtn",
+	"privacyPolicyUrl": "https://orderguru.app/privacy-policy?option=hideNavBtn",
+	"supportEmail": "support@orderguru.app",
+	"ios": {
+		"ITUNES_URL": "itms://itunes.apple.com/us/app/qathena-prime/id1421643320",
+		"PRODUCT_NAME": "Merchant Guru",
+		"PRODUCT_BUNDLE_IDENTIFIER": "com.qathena.prime",
+		"APPLE_PAY_MERCHANT_ID": "merchant.com.qathena",
+		"configuration": "OrderGuru.Release",
+		"scheme": "OrderGuru"
+	},
+	"android": {
+		"market_url": "market://details?id=com.qathena.prime",
+		"app_name": "Merchant Guru",
+		"applicationId": "com.qathena.prime",
+		"flavor": "orderguru"
+	},
+	"testfairy": {
+		"testerGroups": ["saigonvalley_dev", "saigonvalley_tester"]
+	},
+	"api": {
+		"version": "2.0.0",
+		"baseUrl": {
+			"dev": "https://dev-api-sg.qathena.com",
+			"stag": "https://stage-api.qathena.com",
+			"prod": "https://api.qathena.com"
+		}
+	},
+	"primeWeb": {
+		"dev": {
+			"baseUrl": "https://app-stage.qathena.com/prime"
+		},
+		"stag": {
+			"baseUrl": "https://app-stage.qathena.com/prime"
+		},
+		"prod": {
+			"baseUrl": "https://merchant.orderguru.app"
+		}
+	},
+	"orderWeb": {
+		"dev": {
+			"consumerUrl": "https://dev-eat.orderguru.qreative.cc",
+			"merchantUrl": ""
+		},
+		"stag": {
+			"consumerUrl": "https://eat.orderguru.qreative.cc",
+			"merchantUrl": "https://orderguru.qreative.cc"
+		},
+		"prod": {
+			"consumerUrl": "https://eat.orderguru.app",
+			"merchantUrl": "https://orderguru.app"
+		}
+	},
+	"stripePublishableKey": {
+		"test": "pk_test_pBwVxOAOXbikw7DLvjLzyWVX",
+		"production": "pk_live_8HER8JFVaMEH4u8mSF7Hl6qx"
+	},
+
+	"ws": {
+		"dev": { "url": "wss://dev-ws.qathena.com/ws" },
+		"stag": {
+			"url": "wss://stage-ws.qathena.com/ws"
+		},
+		"prod": {
+			"url": "wss://ws.qathena.com/ws"
+		}
+	},
+	"firebase": {
+		"email": "integrations@orderguru.app",
+		"password": "9K#4jh1OqW5Lo!8ULSzF",
+		"firestore": {
+			"collection": {
+				"dev": "restaurant_dev",
+				"stag": "restaurant_stage",
+				"prod": "restaurant"
+			}
+		}
+	},
+	"features": {
+		"menu.getFile": true
+	}
+}

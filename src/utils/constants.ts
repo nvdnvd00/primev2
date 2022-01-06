@@ -1,4 +1,3 @@
-export const API_URL = 'https://randomuser.me';
 export const API_METHOD = {
 	GET: 'get',
 	POST: 'post',
@@ -9,4 +8,5 @@ export const API_METHOD = {
 
 export const SCREEN_NAME = {
 	EXAMPLE: 'Example',
+	LOGIN: 'Login',
 };

@@ -1,8 +1,4 @@
 import { createSmartThunk } from 'redux-smart-actions';
-import {
-	// API_METHOD,
-	API_URL,
-} from 'utils/constants';
 import { setParamsUrl } from 'utils/helper';
 
 export const getUsers: any = createSmartThunk(
@@ -10,7 +6,7 @@ export const getUsers: any = createSmartThunk(
 		const state = getState();
 		return {
 			request: {
-				url: `${API_URL}/api?` + setParamsUrl(params),
+				url: `https://randomuser.me/api?` + setParamsUrl(params),
 			},
 			meta: {
 				asMutation: false,

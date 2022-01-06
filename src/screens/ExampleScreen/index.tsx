@@ -1,19 +1,16 @@
 import { useNavigation } from '@react-navigation/native';
-import { useQuery } from '@redux-requests/react';
+import { resetRequests } from '@redux-requests/core';
 import Box from 'components/Box';
 import Button from 'components/Button';
 import Text from 'components/Text';
 import React from 'react';
 import { Trans } from 'react-i18next';
-import { ScrollView } from 'react-native';
 import { useDispatch } from 'react-redux';
-import { getUsers } from 'store/apiAction';
+import { loginTablet } from 'store/apiActions/Auth';
 
 const HomeScreen: React.FC<any> = () => {
 	const navigation = useNavigation();
 	const dispatch = useDispatch<any>();
-	const { data } = useQuery({ type: getUsers });
-	console.log('redux fetch payload', data);
 
 	return (
 		<Box flex={1} alignItems='center' justifyContent='center' backgroundColor='white'>
@@ -23,20 +20,11 @@ const HomeScreen: React.FC<any> = () => {
 			<Button
 				variant='example'
 				marginRight='xl'
-				onPress={() =>
-					dispatch(getUsers({ results: 10 })).then((res: any) => {
-						console.log({ data: res.data });
-					})
-				}>
+				onPress={() => dispatch(resetRequests([loginTablet]))}>
 				<Text variant='heading' color='white'>
-					Button
+					logout
 				</Text>
 			</Button>
-			<ScrollView>
-				<Text variant='heading' color='blue'>
-					{JSON.stringify(data)}
-				</Text>
-			</ScrollView>
 		</Box>
 	);
 };

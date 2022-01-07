@@ -53,13 +53,14 @@
 		"baseUrl": "." /* Base directory to resolve non-absolute module names. */,
 		"paths": {
 			"src": ["./src"],
-			"src/components": ["src/components/*"],
+			"src/components/*": ["src/components/*"],
 			"components/*": ["src/components/*"],
-			"src/store": ["src/store/*"],
+			"src/store/*": ["src/store/*"],
 			"store/*": ["src/store/*"],
-			"src/utils": ["src/utils/*"],
+			"src/utils/*": ["src/utils/*"],
 			"utils/*": ["src/utils/*"],
-			"src/theme": ["src/theme/*"]
+			"src/theme/*": ["src/theme/*"],
+			"theme/*": ["src/theme/*"]
 		} /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */,
 		// "rootDirs": [],                        /* List of root folders whose combined content represents the structure of the project at runtime. */
 		// "typeRoots": [],                       /* List of folders to include type definitions from. */

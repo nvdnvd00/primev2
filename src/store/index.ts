@@ -1,20 +1,23 @@
 import { createDriver } from '@redux-requests/axios';
-import { handleRequests } from '@redux-requests/core';
+import { getQuery, handleRequests } from '@redux-requests/core';
 import axios from 'axios';
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import { createLogger } from 'redux-logger';
 import thunk from 'redux-thunk';
 import i18next from 'src/translations';
+import { loginTablet } from 'store/apiActions/Auth';
 
 const onRequest = (request: any, requestAction: any, store: any) => {
 	const { headers } = request;
-	const token = 'accessToken';
+	const state = store.getState();
+	const { data = {} } = getQuery(state, { type: loginTablet });
 	const r = {
 		...request,
 		headers: {
 			'Content-Type': 'application/json',
 			'Accept-Language': i18next.language,
-			Authorization: token ? `${token}` : undefined,
+			Authorization: `${data?.IdToken}`,
+			AccessToken: `${data?.AccessToken}`,
 			...headers,
 		},
 	};

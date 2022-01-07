@@ -1,6 +1,6 @@
 import DeviceInfo from 'react-native-device-info';
 import { createSmartThunk } from 'redux-smart-actions';
-import { AUTH_ENDPOINTS } from 'src/apis';
+import { API_VERSION, BASE_API } from 'src/config';
 import { API_METHOD } from 'utils/constants';
 
 export const loginTablet: any = createSmartThunk(
@@ -8,14 +8,14 @@ export const loginTablet: any = createSmartThunk(
 		const id = DeviceInfo.getUniqueId();
 		return {
 			request: {
-				url: `${AUTH_ENDPOINTS.LOGIN}`,
+				url: `${BASE_API}/user${API_VERSION}/user/login-tablet`,
 				method: API_METHOD.POST,
 				data: { ...data, device: { id } },
 			},
 			meta: {
 				asMutation: false,
 				onSuccess: async (response: any, requestAction: any, store: any) => {
-					return response;
+					return response.data;
 				},
 			},
 		};

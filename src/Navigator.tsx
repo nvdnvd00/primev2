@@ -55,7 +55,6 @@ const AppStack = memo(() => {
 
 		if (!isReady) restoreState();
 	}, [isReady]);
-
 	if (!isReady) return null;
 	return (
 		<NavigationContainer

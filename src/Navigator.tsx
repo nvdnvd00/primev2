@@ -4,10 +4,10 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { useQuery } from '@redux-requests/react';
 import React, { memo } from 'react';
 import { Linking } from 'react-native';
-import Login from 'src/screens/Login';
-import { loginTablet } from 'store/apiActions/Auth';
-import { SCREEN_NAME } from 'utils/constants';
-import ExampleScreen from './screens/ExampleScreen';
+import ExampleScreen from '~screens/ExampleScreen';
+import Login from '~screens/Login';
+import { loginTablet } from '~store/apiActions/Auth';
+import { SCREEN_NAME } from '~utils/constants';
 
 const Stack = createStackNavigator();
 

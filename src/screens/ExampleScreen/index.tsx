@@ -1,12 +1,12 @@
 import { useNavigation } from '@react-navigation/native';
 import { resetRequests } from '@redux-requests/core';
-import Box from 'components/Box';
-import Button from 'components/Button';
-import Text from 'components/Text';
 import React from 'react';
 import { Trans } from 'react-i18next';
 import { useDispatch } from 'react-redux';
-import { loginTablet } from 'store/apiActions/Auth';
+import Box from '~components/Box';
+import Button from '~components/Button';
+import Text from '~components/Text';
+import { loginTablet } from '~store/apiActions/Auth';
 
 const HomeScreen: React.FC<any> = () => {
 	const navigation = useNavigation();

@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
-import Box from 'components/Box';
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import Box from '~components/Box';
 import LoginForm from './LoginForm';
 
 const LoginScreen: React.FC<any> = () => {

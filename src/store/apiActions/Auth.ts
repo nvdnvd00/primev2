@@ -1,7 +1,7 @@
 import DeviceInfo from 'react-native-device-info';
 import { createSmartThunk } from 'redux-smart-actions';
-import { API_VERSION, BASE_API } from 'src/config';
-import { API_METHOD } from 'utils/constants';
+import { API_VERSION, BASE_API } from '~config';
+import { API_METHOD } from '~utils/constants';
 
 export const loginTablet: any = createSmartThunk(
 	(data: any) => (dispatch, getState, extraArguments) => {

@@ -18,7 +18,7 @@ import {
 	VariantProps,
 } from '@shopify/restyle';
 import { TouchableOpacity } from 'react-native';
-import { Theme } from 'src/theme';
+import { Theme } from '~src/theme';
 
 type BtnProps = VariantProps<Theme, 'touchableVariants'> &
 	SpacingShorthandProps<Theme> &

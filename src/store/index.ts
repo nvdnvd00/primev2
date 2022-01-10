@@ -4,24 +4,27 @@ import axios from 'axios';
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import { createLogger } from 'redux-logger';
 import thunk from 'redux-thunk';
-import i18next from 'src/translations';
-import { loginTablet } from 'store/apiActions/Auth';
+import i18next from '~translations';
+import { loginTablet } from './apiActions/Auth';
 
 const onRequest = (request: any, requestAction: any, store: any) => {
-	const { headers } = request;
 	const state = store.getState();
 	const { data = {} } = getQuery(state, { type: loginTablet });
-	const r = {
-		...request,
-		headers: {
-			'Content-Type': 'application/json',
-			'Accept-Language': i18next.language,
-			Authorization: `${data?.IdToken}`,
-			AccessToken: `${data?.AccessToken}`,
-			...headers,
-		},
+	const buildRequest = (rawRequest: any) => {
+		const { headers } = rawRequest;
+		return {
+			...rawRequest,
+			headers: {
+				'Content-Type': 'application/json',
+				'Accept-Language': i18next.language,
+				Authorization: `${data?.IdToken}`,
+				AccessToken: `${data?.AccessToken}`,
+				...headers,
+			},
+		};
 	};
-	return r;
+
+	return request?.map?.(buildRequest) ?? buildRequest(request);
 };
 
 const onSuccess = async (response: any, requestAction: any, store: any) => {

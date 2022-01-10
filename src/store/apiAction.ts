@@ -1,5 +1,5 @@
 import { createSmartThunk } from 'redux-smart-actions';
-import { setParamsUrl } from 'utils/helper';
+import { setParamsUrl } from '~utils/helper';
 
 export const getUsers: any = createSmartThunk(
 	(params: any) => (dispatch, getState, extraArguments) => {

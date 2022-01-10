@@ -24,11 +24,10 @@
 					".json"
 				],
 				"alias": {
-					"src": "./src",
-					"components": "./src/components",
-					"store": "./src/store",
-					"utils": "./src/utils",
-					"theme": "./src/theme"
+					/**
+					 * Regular expression is used to match all files inside `./src` directory and map each `.src/folder/[..]` to `~folder/[..]` path
+					 */
+					"^~(.+)": "./src/\\1"
 				}
 			}
 		],

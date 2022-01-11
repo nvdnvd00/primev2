@@ -26,6 +26,7 @@ const LoginForm = ({}: LoginFormProps) => {
 	return (
 		<Box width='100%' alignItems='center'>
 			<Input
+				keyboardType={'email-address'}
 				editable={!loading}
 				activeColor={'white'}
 				inactiveColor={'white'}

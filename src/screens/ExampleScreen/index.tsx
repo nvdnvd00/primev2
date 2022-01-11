@@ -18,11 +18,11 @@ const HomeScreen: React.FC<any> = () => {
 				<Trans i18nKey='Home Screen'>Home Screen</Trans>
 			</Text>
 			<Button
-				variant='example'
-				marginRight='xl'
+				variant='primary'
+				bg='green'
 				onPress={() => dispatch(resetRequests([loginTablet]))}>
 				<Text variant='heading' color='white'>
-					logout
+					Log Out
 				</Text>
 			</Button>
 		</Box>

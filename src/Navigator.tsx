@@ -1,14 +1,35 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { createDrawerNavigator, DrawerNavigationOptions } from '@react-navigation/drawer';
 import { createNavigationContainerRef, NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { useQuery } from '@redux-requests/react';
 import React, { memo } from 'react';
-import { Linking } from 'react-native';
+import { Linking, StyleSheet } from 'react-native';
+import DeviceInfo from 'react-native-device-info';
+import CustomDrawer from '~components/Drawer';
 import ExampleScreen from '~screens/ExampleScreen';
+import Home from '~screens/Home';
 import Login from '~screens/Login';
 import { loginTablet } from '~store/apiActions/Auth';
 import { SCREEN_NAME } from '~utils/constants';
 
+const Drawer = createDrawerNavigator();
+const styles = StyleSheet.create({
+	drawerStyle: {
+		backgroundColor: 'transparent',
+		width: DeviceInfo.isTablet() ? '20%' : '20%',
+	},
+
+	sceneContainerStyle: {
+		backgroundColor: 'transparent',
+	},
+});
+const drawerScreenOptions: DrawerNavigationOptions = {
+	drawerType: 'slide',
+	overlayColor: 'transparent',
+	sceneContainerStyle: styles.sceneContainerStyle,
+	drawerStyle: styles.drawerStyle,
+};
 const Stack = createStackNavigator();
 
 export const navigationRef = createNavigationContainerRef();
@@ -56,6 +77,15 @@ const AppStack = memo(() => {
 		if (!isReady) restoreState();
 	}, [isReady]);
 	if (!isReady) return null;
+	const DrawerNavigator = () => (
+		<Drawer.Navigator
+			screenOptions={drawerScreenOptions}
+			drawerContent={(props: any) => {
+				return <CustomDrawer {...props} />;
+			}}>
+			<Drawer.Screen name={SCREEN_NAME.EXAMPLE} component={ExampleScreen} />
+		</Drawer.Navigator>
+	);
 	return (
 		<NavigationContainer
 			ref={navigationRef}
@@ -69,7 +99,7 @@ const AppStack = memo(() => {
 				</Stack.Navigator>
 			) : (
 				<Stack.Navigator screenOptions={{ headerShown: false }}>
-					<Stack.Screen name={SCREEN_NAME.EXAMPLE} component={ExampleScreen} />
+					<Stack.Screen name={SCREEN_NAME.HOME} component={Home} />
 				</Stack.Navigator>
 			)}
 		</NavigationContainer>

@@ -1,6 +1,10 @@
 {
-	"primary": "rgba(98,145,255,1.0)",
+	"primary": "rgba(242,103,34,1)",
+	"primaryLighter": "#f8b390",
 	"disabled": "#808080",
+	"shadow": "rgba(55,55,55,1.0)",
+	"shadow50": "rgba(55,55,55,0.5)",
+	"black": "#000",
 
 	"white": "#fff",
 	"green": "#50B83C",

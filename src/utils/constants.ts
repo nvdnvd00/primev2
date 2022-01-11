@@ -1,3 +1,4 @@
+import { StyleSheet } from 'react-native';
 export const API_METHOD = {
 	GET: 'get',
 	POST: 'post',
@@ -8,5 +9,8 @@ export const API_METHOD = {
 
 export const SCREEN_NAME = {
 	EXAMPLE: 'Example',
+	HOME: 'Home',
 	LOGIN: 'Login',
 };
+
+export const appBorderWidth = StyleSheet.hairlineWidth * 3;

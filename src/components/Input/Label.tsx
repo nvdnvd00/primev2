@@ -3,10 +3,11 @@ import * as React from 'react';
 import Text from '~components/Text';
 import { Theme } from '~theme';
 
-const Label = ({ children, focused }: any) => {
-	const theme = useTheme<Theme>();
+const Label = ({ children, focused, activeColor, inactiveColor }: any) => {
+	const { colors } = useTheme<Theme>();
+
 	return (
-		<Text variant='inputLabel' mb='s' color={!focused ? 'disabled' : 'primary'}>
+		<Text variant='inputLabel' color={focused ? activeColor : inactiveColor} mb='s'>
 			{children}
 		</Text>
 	);

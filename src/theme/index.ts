@@ -6,7 +6,7 @@ import touchableVariants from './TouchableVariants';
 const theme = createTheme({
 	colors: {
 		...colors,
-		transparent: 'transparent',
+		none: 'transparent',
 	},
 	spacing: {
 		none: 0,
@@ -15,6 +15,7 @@ const theme = createTheme({
 		m: 8,
 		l: 16,
 		xl: 24,
+		xxl: 32,
 	},
 	zIndices: {
 		'0': 0,

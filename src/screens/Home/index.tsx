@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import Box from '~components/Box';
 import { appBorderWidth } from '~utils/constants';
 import LeftMenu from './LeftMenu';
+import OrderDetail from './OrderDetail';
 import Orders from './Orders';
 
 const HomeScreen: React.FC<any> = () => {
@@ -22,7 +23,9 @@ const HomeScreen: React.FC<any> = () => {
 				<Box flex={1} bg='none' borderRightWidth={appBorderWidth} borderColor='sky' py='xl'>
 					<Orders />
 				</Box>
-				<Box flex={0.9} bg='none' py='xl'></Box>
+				<Box flex={0.9} bg='none' py='xl'>
+					<OrderDetail />
+				</Box>
 			</Box>
 		</SafeAreaView>
 	);

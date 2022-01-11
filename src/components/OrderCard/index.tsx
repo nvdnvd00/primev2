@@ -8,16 +8,21 @@ import { AppIcons } from '~config';
 import { Theme } from '~theme';
 import { appBorderWidth } from '~utils/constants';
 
-interface OrderCardProps {}
+interface OrderCardProps {
+	onSelect?: (data: any) => void;
+	data?: any;
+	active?: boolean;
+}
 
-const OrderCard = (props: OrderCardProps) => {
+const OrderCard = ({ onSelect, data, active }: OrderCardProps) => {
 	const { spacing, borderRadii, colors } = useTheme<Theme>();
 	const cardHeight = 120;
 	const avtSize = cardHeight - spacing.m * 2;
-	const selected = false;
 	return (
 		<Button
-			onPress={() => alert('x')}
+			onPress={() => {
+				if (onSelect instanceof Function) onSelect(data);
+			}}
 			borderWidth={appBorderWidth}
 			borderColor='sky'
 			mb='xl'
@@ -27,25 +32,27 @@ const OrderCard = (props: OrderCardProps) => {
 			width='100%'
 			flexDirection='row'
 			alignItems='center'
-			bg={selected ? 'primary' : 'none'}>
+			bg={active ? 'primary' : 'none'}>
 			<FastImage
 				uri={`https://i.pravatar.cc/300?t=${Math.random()}`}
 				style={{ width: avtSize, height: avtSize, borderRadius: borderRadii.l }}
 			/>
 			<Box flex={1} height='100%' justifyContent='space-between' p='m'>
 				<Box>
-					<Text variant='smallCaption'>May 02, 01:00 PM</Text>
+					<Text variant='smallCaption' color={active ? 'white' : 'black'}>
+						May 02, 01:00 PM
+					</Text>
 					<Text
 						variant='body'
 						fontWeight='bold'
-						color={selected ? 'white' : 'black'}
+						color={active ? 'white' : 'black'}
 						mt='s'>
 						John Đu
 					</Text>
 				</Box>
 				<Box>
-					<Text variant='body' color='primary'>
-						8 item
+					<Text variant='body' color={active ? 'white' : 'primary'}>
+						{Math.floor(Math.random() * 10 + 1)} item
 					</Text>
 				</Box>
 			</Box>
@@ -57,10 +64,16 @@ const OrderCard = (props: OrderCardProps) => {
 					bg='none'
 					justifyContent='center'
 					alignItems='center'
-					m='m'>
-					<AppIcons name='Time-Square' size={25} color={colors.primary} />
+					m='s'>
+					<AppIcons
+						name='Time-Square'
+						size={25}
+						color={active ? colors.white : colors.primary}
+					/>
 				</Box>
-				<Text variant='smallCaption'>20m</Text>
+				<Text variant='smallCaption' color={active ? 'white' : 'black'}>
+					{Math.floor(Math.random() * 1000)}m
+				</Text>
 			</Box>
 		</Button>
 	);

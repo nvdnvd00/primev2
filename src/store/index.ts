@@ -5,9 +5,9 @@ import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import { createLogger } from 'redux-logger';
 import thunk from 'redux-thunk';
 import i18next from '~translations';
+import Reactotron from '../../ReactotronConfig';
 import { loginTablet } from './apiActions/Auth';
 import orderManagementReducer from './reducers/orderManagementReducer';
-
 const onRequest = (request: any, requestAction: any, store: any) => {
 	const state = store.getState();
 	const { data = {} } = getQuery(state, { type: loginTablet });
@@ -90,5 +90,9 @@ const logger = createLogger();
 
 export default createStore(
 	reducer,
-	composeEnhancers(applyMiddleware(thunk, logger, ...requestsMiddleware)),
+	compose(
+		// @ts-ignore
+		Reactotron.createEnhancer(),
+		composeEnhancers(applyMiddleware(thunk, logger, ...requestsMiddleware)),
+	),
 );

@@ -1,7 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import { useQuery } from '@redux-requests/react';
 import { useTheme } from '@shopify/restyle';
-import { first } from 'lodash';
 import * as React from 'react';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -10,9 +9,7 @@ import Box from '~components/Box';
 import Button from '~components/Button';
 import Input from '~components/Input';
 import Text from '~components/Text';
-import { setFloor } from '~store/actions/OrderManagementActions';
 import { loginTablet } from '~store/apiActions/Auth';
-import { getRestaurantDetail } from '~store/apiActions/Restaurant';
 import { Theme } from '~theme';
 
 interface LoginFormProps {}
@@ -63,11 +60,11 @@ const LoginForm = ({}: LoginFormProps) => {
 						const { profile = {} } = data;
 						const { restaurant = {} } = profile;
 						if (restaurant.id) {
-							dispatch(getRestaurantDetail(restaurant.id)).then(
-								(restaurantInfo: any) => {
-									dispatch(setFloor(first(restaurantInfo.floors)));
-								},
-							);
+							// dispatch(getCurrentRestaurant(restaurant.id)).then(
+							// 	(restaurantInfo: any) => {
+							// dispatch(setFloor(first(restaurantInfo.floors)));
+							// },
+							// );
 						}
 					})
 				}>

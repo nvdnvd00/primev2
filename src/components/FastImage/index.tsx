@@ -34,4 +34,6 @@ const FastImage = ({ uri, resizeMode, ...rest }: any) => {
 		</FImage>
 	);
 };
+const { resizeMode } = FImage;
+export { resizeMode as ResizeMode };
 export default FastImage;

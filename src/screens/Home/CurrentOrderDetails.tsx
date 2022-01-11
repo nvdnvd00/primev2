@@ -4,18 +4,24 @@ import { useTranslation } from 'react-i18next';
 import { FlatList } from 'react-native';
 import Box from '~components/Box';
 import Button from '~components/Button';
-import OrderDetailItem from '~components/OrderDetailItem';
+import Loading from '~components/Loading';
+import OrderDetailsItem from '~components/OrderDetailsItem';
 import Text from '~components/Text';
+import { AppIcons } from '~config';
+import useCurrentOrderDetails from '~hooks/useCurrentOrderDetails';
 import { Theme } from '~theme';
 import { appBorderWidth } from '~utils/constants';
+import { formatCurrency } from '~utils/helper';
+import { getCreatedName } from '~utils/orderHelper';
+import { getRestaurantCurrency } from '~utils/restaurantHelper';
 
-interface OrderDetailProps {
-	name?: string;
-}
+interface CurrentOrderDetailsProps {}
 
-const OrderDetail = ({ name = 'John Đu' }: OrderDetailProps) => {
+const CurrentOrderDetails = ({}: CurrentOrderDetailsProps) => {
 	const { spacing, borderRadii, colors } = useTheme<Theme>();
 	const { t } = useTranslation();
+	const [currentOrderDetails = {}, loading] = useCurrentOrderDetails();
+	const { orderItems = [], orderNumber, id, restaurant = {}, total } = currentOrderDetails;
 	const Dashed = () => (
 		<Box
 			m='xl'
@@ -25,16 +31,24 @@ const OrderDetail = ({ name = 'John Đu' }: OrderDetailProps) => {
 			borderColor='sky'
 		/>
 	);
+	if (loading)
+		return (
+			<Box justifyContent='center' alignItems='center' flex={1}>
+				<Loading />
+			</Box>
+		);
+	if (!id) return null;
 	return (
 		<Box flex={1} bg='white'>
-			<Text variant='bigHead' px='xl'>
-				{t('Details')}
-			</Text>
+			<Box flexDirection='row' justifyContent='space-between' px='xl'>
+				<Text variant='bigHead'>{t('Details')}</Text>
+				<AppIcons name='More-Circle' color={colors.disabled} size={30} />
+			</Box>
 			<Dashed />
 			<Box flexDirection='row' justifyContent='space-between' px='xl'>
-				<Text variant='bigHead'>{name}</Text>
+				<Text variant='bigHead'>{getCreatedName(currentOrderDetails)}</Text>
 				<Text variant='bigHead' color='primary'>
-					# 132
+					# {orderNumber}
 				</Text>
 			</Box>
 			<Dashed />
@@ -43,16 +57,18 @@ const OrderDetail = ({ name = 'John Đu' }: OrderDetailProps) => {
 					flex: 1,
 					paddingHorizontal: spacing.xl,
 				}}
-				data={[1, 2, 3, 4, 5, 6, 7, 8]}
+				data={orderItems}
 				renderItem={({ item, index }: any) => {
-					return <OrderDetailItem />;
+					return <OrderDetailsItem {...{ data: item }} />;
 				}}
 				keyExtractor={(item, index) => index.toString()}
 			/>
 			<Dashed />
 			<Box px='xl' flexDirection='row' justifyContent='space-between' alignItems='center'>
-				<Text variant='bigHead'>Total</Text>
-				<Text variant='bigHead'>${Math.floor(Math.random() * 1000)}</Text>
+				<Text variant='bigHead'>{t('Total')}</Text>
+				<Text variant='bigHead'>
+					{formatCurrency(getRestaurantCurrency(restaurant), total)}
+				</Text>
 			</Box>
 			<Box pt='xl' px='xl' flexDirection='row' alignItems='center'>
 				<Button
@@ -70,4 +86,4 @@ const OrderDetail = ({ name = 'John Đu' }: OrderDetailProps) => {
 	);
 };
 
-export default OrderDetail;
+export default CurrentOrderDetails;

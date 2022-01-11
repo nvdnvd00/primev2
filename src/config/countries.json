@@ -1,0 +1,831 @@
+[
+	{
+		"name": "United States",
+		"code": "us",
+		"photo": "https://s3.amazonaws.com/qathena-images-prod/country/flag/united-states-of-america.png",
+		"phoneCode": "1",
+		"states": [
+			{
+				"id": 51,
+				"name": "Alabama",
+				"code": "AL",
+				"shortName": "AL"
+			},
+			{
+				"id": 50,
+				"name": "Alaska",
+				"code": "AK",
+				"shortName": "AK"
+			},
+			{
+				"id": 49,
+				"name": "Arizona",
+				"code": "AZ",
+				"shortName": "AZ"
+			},
+			{
+				"id": 48,
+				"name": "Arkansas",
+				"code": "AR",
+				"shortName": "AR"
+			},
+			{
+				"id": 47,
+				"name": "California",
+				"code": "CA",
+				"shortName": "CA"
+			},
+			{
+				"id": 46,
+				"name": "Colorado",
+				"code": "CO",
+				"shortName": "CO"
+			},
+			{
+				"id": 45,
+				"name": "Connecticut",
+				"code": "CT",
+				"shortName": "CT"
+			},
+			{
+				"id": 44,
+				"name": "Delaware",
+				"code": "DE",
+				"shortName": "DE"
+			},
+			{
+				"id": 43,
+				"name": "District of Columbia",
+				"code": "DC",
+				"shortName": "DC"
+			},
+			{
+				"id": 42,
+				"name": "Florida",
+				"code": "FL",
+				"shortName": "FL"
+			},
+			{
+				"id": 41,
+				"name": "Georgia",
+				"code": "GA",
+				"shortName": "GA"
+			},
+			{
+				"id": 40,
+				"name": "Hawaii",
+				"code": "HI",
+				"shortName": "HI"
+			},
+			{
+				"id": 39,
+				"name": "Idaho",
+				"code": "ID",
+				"shortName": "ID"
+			},
+			{
+				"id": 38,
+				"name": "Illinois",
+				"code": "IL",
+				"shortName": "IL"
+			},
+			{
+				"id": 37,
+				"name": "Indiana",
+				"code": "IN",
+				"shortName": "IN"
+			},
+			{
+				"id": 36,
+				"name": "Iowa",
+				"code": "IA",
+				"shortName": "IA"
+			},
+			{
+				"id": 35,
+				"name": "Kansas",
+				"code": "KS",
+				"shortName": "KS"
+			},
+			{
+				"id": 34,
+				"name": "Kentucky",
+				"code": "KY",
+				"shortName": "KY"
+			},
+			{
+				"id": 33,
+				"name": "Louisiana",
+				"code": "LA",
+				"shortName": "LA"
+			},
+			{
+				"id": 32,
+				"name": "Maine",
+				"code": "ME",
+				"shortName": "ME"
+			},
+			{
+				"id": 31,
+				"name": "Maryland",
+				"code": "MD",
+				"shortName": "MD"
+			},
+			{
+				"id": 30,
+				"name": "Massachusetts",
+				"code": "MA",
+				"shortName": "MA"
+			},
+			{
+				"id": 29,
+				"name": "Michigan",
+				"code": "MI",
+				"shortName": "MI"
+			},
+			{
+				"id": 28,
+				"name": "Minnesota",
+				"code": "MN",
+				"shortName": "MN"
+			},
+			{
+				"id": 27,
+				"name": "Mississippi",
+				"code": "MS",
+				"shortName": "MS"
+			},
+			{
+				"id": 26,
+				"name": "Missouri",
+				"code": "MO",
+				"shortName": "MO"
+			},
+			{
+				"id": 25,
+				"name": "Montana",
+				"code": "MT",
+				"shortName": "MT"
+			},
+			{
+				"id": 24,
+				"name": "Nebraska",
+				"code": "NE",
+				"shortName": "NE"
+			},
+			{
+				"id": 23,
+				"name": "Nevada",
+				"code": "NV",
+				"shortName": "NV"
+			},
+			{
+				"id": 22,
+				"name": "New Hampshire",
+				"code": "NH",
+				"shortName": "NH"
+			},
+			{
+				"id": 21,
+				"name": "New Jersey",
+				"code": "NJ",
+				"shortName": "NJ"
+			},
+			{
+				"id": 20,
+				"name": "New Mexico",
+				"code": "NM",
+				"shortName": "NM"
+			},
+			{
+				"id": 19,
+				"name": "New York",
+				"code": "NY",
+				"shortName": "NY"
+			},
+			{
+				"id": 18,
+				"name": "North Carolina",
+				"code": "NC",
+				"shortName": "NC"
+			},
+			{
+				"id": 17,
+				"name": "North Dakota",
+				"code": "ND",
+				"shortName": "ND"
+			},
+			{
+				"id": 16,
+				"name": "Ohio",
+				"code": "OH",
+				"shortName": "OH"
+			},
+			{
+				"id": 15,
+				"name": "Oklahoma",
+				"code": "OK",
+				"shortName": "OK"
+			},
+			{
+				"id": 14,
+				"name": "Oregon",
+				"code": "OR",
+				"shortName": "OR"
+			},
+			{
+				"id": 13,
+				"name": "Pennsylvania",
+				"code": "PA",
+				"shortName": "PA"
+			},
+			{
+				"id": 12,
+				"name": "Rhode Island",
+				"code": "RI",
+				"shortName": "RI"
+			},
+			{
+				"id": 11,
+				"name": "South Carolina",
+				"code": "SC",
+				"shortName": "SC"
+			},
+			{
+				"id": 10,
+				"name": "South Dakota",
+				"code": "SD",
+				"shortName": "SD"
+			},
+			{
+				"id": 9,
+				"name": "Tennessee",
+				"code": "TN",
+				"shortName": "TN"
+			},
+			{
+				"id": 8,
+				"name": "Texas",
+				"code": "TX",
+				"shortName": "TX"
+			},
+			{
+				"id": 7,
+				"name": "Utah",
+				"code": "UT",
+				"shortName": "UT"
+			},
+			{
+				"id": 6,
+				"name": "Vermont",
+				"code": "VT",
+				"shortName": "VT"
+			},
+			{
+				"id": 5,
+				"name": "Virginia",
+				"code": "VA",
+				"shortName": "VA"
+			},
+			{
+				"id": 4,
+				"name": "Washington",
+				"code": "WA",
+				"shortName": "WA"
+			},
+			{
+				"id": 3,
+				"name": "West Virginia",
+				"code": "WV",
+				"shortName": "WV"
+			},
+			{
+				"id": 2,
+				"name": "Wisconsin",
+				"code": "WI",
+				"shortName": "WI"
+			},
+			{
+				"id": 1,
+				"name": "Wyoming",
+				"code": "WY",
+				"shortName": "WY"
+			}
+		],
+		"currency": {
+			"id": 3,
+			"shortName": "USD",
+			"fullname": "United States dollar",
+			"symbol": "$",
+			"displaySymbolBeforeValue": true
+		},
+		"distanceUnit": {
+			"id": 2,
+			"shortName": "mi",
+			"fullname": "mile"
+		}
+	},
+	{
+		"name": "Hong Kong",
+		"code": "hk",
+		"photo": "https://s3.amazonaws.com/qathena-images-prod/country/flag/hong-kong.png",
+		"phoneCode": "852",
+		"states": [],
+		"currency": {
+			"id": 1,
+			"shortName": "HKD",
+			"fullname": "Hong Kong dollar",
+			"symbol": "$",
+			"displaySymbolBeforeValue": true
+		},
+		"distanceUnit": {
+			"id": 2,
+			"shortName": "mi",
+			"fullname": "mile"
+		}
+	},
+	{
+		"name": "Viet Nam",
+		"code": "vn",
+		"photo": "https://s3.amazonaws.com/qathena-images-prod/country/flag/vietnam.png",
+		"phoneCode": "84",
+		"states": [
+			{
+				"id": 151,
+				"name": "An Giang",
+				"code": "90000",
+				"shortName": "An Giang"
+			},
+			{
+				"id": 156,
+				"name": "Bà Rịa – Vũng Tàu",
+				"code": "78000",
+				"shortName": "Bà Rịa – Vũng Tàu"
+			},
+			{
+				"id": 152,
+				"name": "Bắc Giang",
+				"code": "26000",
+				"shortName": "Bắc Giang"
+			},
+			{
+				"id": 153,
+				"name": "Bắc Kạn",
+				"code": "23000",
+				"shortName": "Bắc Kạn"
+			},
+			{
+				"id": 154,
+				"name": "Bạc Liêu",
+				"code": "97000",
+				"shortName": "Bạc Liêu"
+			},
+			{
+				"id": 155,
+				"name": "Bắc Ninh",
+				"code": "16000",
+				"shortName": "Bắc Ninh"
+			},
+			{
+				"id": 157,
+				"name": "Bến Tre",
+				"code": "86000",
+				"shortName": "Bến Tre"
+			},
+			{
+				"id": 158,
+				"name": "Bình Định",
+				"code": "55000",
+				"shortName": "Bình Định"
+			},
+			{
+				"id": 159,
+				"name": "Bình Dương",
+				"code": "75000",
+				"shortName": "Bình Dương"
+			},
+			{
+				"id": 160,
+				"name": "Bình Phước",
+				"code": "67000",
+				"shortName": "Bình Phước"
+			},
+			{
+				"id": 161,
+				"name": "Bình Thuận",
+				"code": "77000",
+				"shortName": "Bình Thuận"
+			},
+			{
+				"id": 162,
+				"name": "Cà Mau",
+				"code": "98000",
+				"shortName": "Cà Mau"
+			},
+			{
+				"id": 163,
+				"name": "Cần Thơ",
+				"code": "94000",
+				"shortName": "Cần Thơ"
+			},
+			{
+				"id": 164,
+				"name": "Cao Bằng",
+				"code": "21000",
+				"shortName": "Cao Bằng"
+			},
+			{
+				"id": 165,
+				"name": "Da Nang",
+				"code": "50000",
+				"shortName": "Da Nang"
+			},
+			{
+				"id": 166,
+				"name": "Đắk Lắk",
+				"code": "63000 – 64000",
+				"shortName": "Đắk Lắk"
+			},
+			{
+				"id": 167,
+				"name": "Đắk Nông",
+				"code": "65000",
+				"shortName": "Đắk Nông"
+			},
+			{
+				"id": 228,
+				"name": "Dien Bien",
+				"code": "Dien Bien",
+				"shortName": "Dien Bien"
+			},
+			{
+				"id": 168,
+				"name": "Điện Biên",
+				"code": "32000",
+				"shortName": "Điện Biên"
+			},
+			{
+				"id": 169,
+				"name": "Đồng Nai",
+				"code": "76000",
+				"shortName": "Đồng Nai"
+			},
+			{
+				"id": 170,
+				"name": "Đồng Tháp",
+				"code": "81000",
+				"shortName": "Đồng Tháp"
+			},
+			{
+				"id": 171,
+				"name": "Gia Lai",
+				"code": "61000 – 62000",
+				"shortName": "Gia Lai"
+			},
+			{
+				"id": 172,
+				"name": "Hà Giang",
+				"code": "20000",
+				"shortName": "Hà Giang"
+			},
+			{
+				"id": 173,
+				"name": "Hà Nam",
+				"code": "18000",
+				"shortName": "Hà Nam"
+			},
+			{
+				"id": 177,
+				"name": "Hà Nội",
+				"code": "10000 – 14000",
+				"shortName": "Hà Nội"
+			},
+			{
+				"id": 174,
+				"name": "Hà Tĩnh",
+				"code": "45000 – 46000",
+				"shortName": "Hà Tĩnh"
+			},
+			{
+				"id": 175,
+				"name": "Hải Dương",
+				"code": "03000",
+				"shortName": "Hải Dương"
+			},
+			{
+				"id": 176,
+				"name": "Hải Phòng",
+				"code": "04000 – 05000",
+				"shortName": "Hải Phòng"
+			},
+			{
+				"id": 178,
+				"name": "Hậu Giang",
+				"code": "95000",
+				"shortName": "Hậu Giang"
+			},
+			{
+				"id": 217,
+				"name": "Hồ Chí Minh",
+				"code": "Hồ Chí Minh",
+				"shortName": "Hồ Chí Minh"
+			},
+			{
+				"id": 227,
+				"name": "Ho Chi Minh City",
+				"code": "Ho Chi Minh City",
+				"shortName": "Ho Chi Minh City"
+			},
+			{
+				"id": 179,
+				"name": "Hòa Bình",
+				"code": "36000",
+				"shortName": "Hòa Bình"
+			},
+			{
+				"id": 181,
+				"name": "Hưng Yên",
+				"code": "17000",
+				"shortName": "Hưng Yên"
+			},
+			{
+				"id": 182,
+				"name": "Khánh Hòa",
+				"code": "57000",
+				"shortName": "Khánh Hòa"
+			},
+			{
+				"id": 183,
+				"name": "Kiên Giang",
+				"code": "91000 – 92000",
+				"shortName": "Kiên Giang"
+			},
+			{
+				"id": 184,
+				"name": "Kon Tum",
+				"code": "60000",
+				"shortName": "Kon Tum"
+			},
+			{
+				"id": 185,
+				"name": "Lai Châu",
+				"code": "30000",
+				"shortName": "Lai Châu"
+			},
+			{
+				"id": 186,
+				"name": "Lâm Đồng",
+				"code": "66000",
+				"shortName": "Lâm Đồng"
+			},
+			{
+				"id": 187,
+				"name": "Lạng Sơn",
+				"code": "25000",
+				"shortName": "Lạng Sơn"
+			},
+			{
+				"id": 188,
+				"name": "Lào Cai",
+				"code": "31000",
+				"shortName": "Lào Cai"
+			},
+			{
+				"id": 189,
+				"name": "Long An",
+				"code": "82000 – 83000",
+				"shortName": "Long An"
+			},
+			{
+				"id": 190,
+				"name": "Nam Định",
+				"code": "07000",
+				"shortName": "Nam Định"
+			},
+			{
+				"id": 191,
+				"name": "Nghệ An",
+				"code": "43000 – 44000",
+				"shortName": "Nghệ An"
+			},
+			{
+				"id": 192,
+				"name": "Ninh Bình",
+				"code": "08000",
+				"shortName": "Ninh Bình"
+			},
+			{
+				"id": 193,
+				"name": "Ninh Thuận",
+				"code": "59000",
+				"shortName": "Ninh Thuận"
+			},
+			{
+				"id": 194,
+				"name": "Phú Thọ",
+				"code": "35000",
+				"shortName": "Phú Thọ"
+			},
+			{
+				"id": 195,
+				"name": "Phú Yên",
+				"code": "56000",
+				"shortName": "Phú Yên"
+			},
+			{
+				"id": 196,
+				"name": "Quảng Bình",
+				"code": "47000",
+				"shortName": "Quảng Bình"
+			},
+			{
+				"id": 197,
+				"name": "Quảng Nam",
+				"code": "51000 – 52000",
+				"shortName": "Quảng Nam"
+			},
+			{
+				"id": 198,
+				"name": "Quảng Ngãi",
+				"code": "53000 – 54000",
+				"shortName": "Quảng Ngãi"
+			},
+			{
+				"id": 199,
+				"name": "Quảng Ninh",
+				"code": "01000 – 02000",
+				"shortName": "Quảng Ninh"
+			},
+			{
+				"id": 200,
+				"name": "Quảng Trị",
+				"code": "48000",
+				"shortName": "Quảng Trị"
+			},
+			{
+				"id": 201,
+				"name": "Sóc Trăng",
+				"code": "96000",
+				"shortName": "Sóc Trăng"
+			},
+			{
+				"id": 202,
+				"name": "Sơn La",
+				"code": "34000",
+				"shortName": "Sơn La"
+			},
+			{
+				"id": 203,
+				"name": "Tây Ninh",
+				"code": "80000",
+				"shortName": "Tây Ninh"
+			},
+			{
+				"id": 204,
+				"name": "Thái Bình",
+				"code": "06000",
+				"shortName": "Thái Bình"
+			},
+			{
+				"id": 205,
+				"name": "Thái Nguyên",
+				"code": "24000",
+				"shortName": "Thái Nguyên"
+			},
+			{
+				"id": 206,
+				"name": "Thanh Hóa",
+				"code": "40000 – 42000",
+				"shortName": "Thanh Hóa"
+			},
+			{
+				"id": 207,
+				"name": "Thừa Thiên Huế",
+				"code": "49000",
+				"shortName": "Thừa Thiên Huế"
+			},
+			{
+				"id": 208,
+				"name": "Tiền Giang",
+				"code": "84000",
+				"shortName": "Tiền Giang"
+			},
+			{
+				"id": 180,
+				"name": "TP. Hồ Chí Minh",
+				"code": "70000 – 74000",
+				"shortName": "TP. Hồ Chí Minh"
+			},
+			{
+				"id": 209,
+				"name": "Trà Vinh",
+				"code": "87000",
+				"shortName": "Trà Vinh"
+			},
+			{
+				"id": 210,
+				"name": "Tuyên Quang",
+				"code": "22000",
+				"shortName": "Tuyên Quang"
+			},
+			{
+				"id": 211,
+				"name": "Vĩnh Long",
+				"code": "85000",
+				"shortName": "Vĩnh Long"
+			},
+			{
+				"id": 212,
+				"name": "Vĩnh Phúc",
+				"code": "15000",
+				"shortName": "Vĩnh Phúc"
+			},
+			{
+				"id": 213,
+				"name": "Yên Bái\t",
+				"code": "33000",
+				"shortName": "Yên Bái\t"
+			}
+		],
+		"currency": {
+			"id": 2,
+			"shortName": "VND",
+			"fullname": "Vietnamese đồng",
+			"symbol": "₫",
+			"displaySymbolBeforeValue": false
+		},
+		"distanceUnit": {
+			"id": 2,
+			"shortName": "mi",
+			"fullname": "mile"
+		}
+	},
+	{
+		"name": "Australia",
+		"code": "au",
+		"photo": "https://s3.amazonaws.com/qathena-images-prod/country/flag/australia.png",
+		"phoneCode": "61",
+		"states": [
+			{
+				"id": 220,
+				"name": "Australian Capital Territory",
+				"code": "0200",
+				"shortName": "ACT"
+			},
+			{
+				"id": 219,
+				"name": "New South Wales",
+				"code": "1000",
+				"shortName": "NSW"
+			},
+			{
+				"id": 226,
+				"name": "Northern Territory",
+				"code": "0800",
+				"shortName": "NT"
+			},
+			{
+				"id": 222,
+				"name": "Queensland",
+				"code": "4000",
+				"shortName": "QLD"
+			},
+			{
+				"id": 223,
+				"name": "South Australia",
+				"code": "5000",
+				"shortName": "SA"
+			},
+			{
+				"id": 225,
+				"name": "Tasmania",
+				"code": "7000",
+				"shortName": "TAS"
+			},
+			{
+				"id": 221,
+				"name": "Victoria",
+				"code": "3000",
+				"shortName": "VIC"
+			},
+			{
+				"id": 224,
+				"name": "Western Australia",
+				"code": "6000",
+				"shortName": "WA"
+			}
+		],
+		"currency": {
+			"id": 4,
+			"shortName": "AUD",
+			"fullname": "Australian dollar",
+			"symbol": "$",
+			"displaySymbolBeforeValue": true
+		},
+		"distanceUnit": {
+			"id": 2,
+			"shortName": "mi",
+			"fullname": "mile"
+		}
+	}
+]

@@ -1,12 +1,15 @@
 import { useTheme } from '@shopify/restyle';
+import { format } from 'date-fns';
 import * as React from 'react';
+import { Trans } from 'react-i18next';
 import Box from '~components/Box';
 import Button from '~components/Button';
-import FastImage from '~components/FastImage';
+import FastImage, { ResizeMode } from '~components/FastImage';
 import Text from '~components/Text';
 import { AppIcons } from '~config';
 import { Theme } from '~theme';
 import { appBorderWidth } from '~utils/constants';
+import { getCreatedName } from '~utils/orderHelper';
 
 interface OrderCardProps {
 	onSelect?: (data: any) => void;
@@ -18,10 +21,12 @@ const OrderCard = ({ onSelect, data, active }: OrderCardProps) => {
 	const { spacing, borderRadii, colors } = useTheme<Theme>();
 	const cardHeight = 120;
 	const avtSize = cardHeight - spacing.m * 2;
+	//
+	const { placedTime = new Date(), createdBy = {}, id, orderItems = [] } = data;
 	return (
 		<Button
 			onPress={() => {
-				if (onSelect instanceof Function) onSelect(data);
+				if (onSelect instanceof Function) onSelect(id);
 			}}
 			borderWidth={appBorderWidth}
 			borderColor='sky'
@@ -34,25 +39,26 @@ const OrderCard = ({ onSelect, data, active }: OrderCardProps) => {
 			alignItems='center'
 			bg={active ? 'primary' : 'none'}>
 			<FastImage
-				uri={`https://i.pravatar.cc/300?t=${Math.random()}`}
+				uri={createdBy?.avatar ?? `https://i.pravatar.cc/300?t=${Math.random()}`}
 				style={{ width: avtSize, height: avtSize, borderRadius: borderRadii.l }}
+				resizeMode={ResizeMode.cover}
 			/>
 			<Box flex={1} height='100%' justifyContent='space-between' p='m'>
 				<Box>
 					<Text variant='smallCaption' color={active ? 'white' : 'black'}>
-						May 02, 01:00 PM
+						{format(new Date(placedTime * 1000), 'MMM d, h:mm aa')}
 					</Text>
 					<Text
 						variant='body'
 						fontWeight='bold'
 						color={active ? 'white' : 'black'}
 						mt='s'>
-						John Đu
+						{getCreatedName(data)}
 					</Text>
 				</Box>
 				<Box>
 					<Text variant='body' color={active ? 'white' : 'primary'}>
-						{Math.floor(Math.random() * 10 + 1)} item
+						<Trans i18nKey='{{count}} item' count={orderItems.length} />
 					</Text>
 				</Box>
 			</Box>
@@ -66,7 +72,7 @@ const OrderCard = ({ onSelect, data, active }: OrderCardProps) => {
 					alignItems='center'
 					m='s'>
 					<AppIcons
-						name='Time-Square'
+						name='Time-Circle'
 						size={25}
 						color={active ? colors.white : colors.primary}
 					/>

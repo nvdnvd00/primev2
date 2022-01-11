@@ -76,8 +76,8 @@ const onError = async (error: any, requestAction: any, store: any) => {
 const { requestsReducer, requestsMiddleware } = handleRequests({
 	driver: createDriver(axios),
 	onRequest,
-	onError,
-	onSuccess,
+	// onError,
+	// onSuccess,
 });
 
 const reducer = combineReducers({

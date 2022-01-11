@@ -1,3 +1,16 @@
 {
-	"Home Screen": "Home Screen"
+    "{{count}} item_one": "{{count}} item",
+    "{{count}} item_other": "{{count}} item",
+    "Current": "Current",
+    "Details": "Details",
+    "Done All": "Done All",
+    "E-mail": "E-mail",
+    "Home Screen": "Home Screen",
+    "Login": "Login",
+    "Logout": "Logout",
+    "Orders": "Orders",
+    "Password": "Password",
+    "Settings": "Settings",
+    "Waiting Delivery": "Waiting Delivery",
+    "Waiting Pickup": "Waiting Pickup"
 }

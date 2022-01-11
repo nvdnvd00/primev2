@@ -4,7 +4,7 @@ import ReactotronFlipper from 'reactotron-react-native/dist/flipper';
 import { reactotronRedux } from 'reactotron-redux';
 Reactotron.clear();
 let scriptHostname;
-let reactotron;
+let reactotron = {};
 if (__DEV__) {
 	const scriptURL = NativeModules.SourceCode.scriptURL;
 	scriptHostname = scriptURL.split('://')[1].split(':')[0];
@@ -33,7 +33,11 @@ if (__DEV__) {
 		// .setAsyncStorageHandler(AsyncStorage)
 		// .use(asyncStorage())
 		.use(trackGlobalErrors())
-		.use(reactotronRedux())
+		.use(
+			reactotronRedux({
+				except: ['ADD_WATCHER', 'REMOVE_WATCHER'],
+			}),
+		)
 		.connect();
 }
 

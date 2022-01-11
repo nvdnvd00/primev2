@@ -5,14 +5,12 @@ import { setParamsUrl } from '~utils/helper';
 
 export const getInProgressOrders: any = createSmartAction(
 	(restaurantId: number, floorId: number) => ({
-		request: [
-			{
-				url:
-					`${BASE_API}/order${API_VERSION}/orders/get-in-progress-orders?` +
-					setParamsUrl({ restaurantId, floorId }),
-				method: API_METHOD.GET,
-			},
-		],
+		request: {
+			url:
+				`${BASE_API}/order${API_VERSION}/orders/get-in-progress-orders?` +
+				setParamsUrl({ restaurantId, floorId }),
+			method: API_METHOD.GET,
+		},
 
 		meta: {
 			onSuccess: async (response: any, requestAction: any, store: any) => {
@@ -21,3 +19,16 @@ export const getInProgressOrders: any = createSmartAction(
 		},
 	}),
 );
+
+export const getInProgressOrderDetails: any = createSmartAction((id: number) => ({
+	request: {
+		url: `${BASE_API}/order${API_VERSION}/order/${id}`,
+		method: API_METHOD.GET,
+	},
+
+	meta: {
+		onSuccess: async (response: any, requestAction: any, store: any) => {
+			return response.data;
+		},
+	},
+}));

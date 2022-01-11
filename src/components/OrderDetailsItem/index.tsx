@@ -2,19 +2,21 @@ import { useTheme } from '@shopify/restyle';
 import * as React from 'react';
 import { StyleSheet } from 'react-native';
 import Box from '~components/Box';
-import FastImage from '~components/FastImage';
+import FastImage, { ResizeMode } from '~components/FastImage';
 import Loading from '~components/Loading';
 import Text from '~components/Text';
 import { AppIcons } from '~config';
 import { Theme } from '~theme';
 
-interface OrderDetailItemProps {}
+interface OrderDetailsItemProps {
+	data?: any;
+}
 
-const OrderDetailItem = (props: OrderDetailItemProps) => {
+const OrderDetailsItem = ({ data }: OrderDetailsItemProps) => {
 	const { spacing, borderRadii, colors } = useTheme<Theme>();
 	const active = false;
 	const avtSize = 34;
-	const status = Math.floor((Math.random() * 10) / 3);
+	const { quantity, name, status = {}, photo } = data;
 	return (
 		<Box
 			mb='l'
@@ -26,12 +28,13 @@ const OrderDetailItem = (props: OrderDetailItemProps) => {
 			alignItems='center'
 			bg={active ? 'primary' : 'none'}>
 			<FastImage
-				uri={`https://i.pravatar.cc/300?t=${Math.random()}`}
+				uri={photo ?? `https://i.pravatar.cc/300?t=${Math.random()}`}
 				style={{ width: avtSize, height: avtSize, borderRadius: borderRadii.m }}
+				resizeMode={ResizeMode.cover}
 			/>
 			<Box flex={1} justifyContent='space-between' px='m'>
 				<Text variant='heading' fontWeight='bold' color={'black'}>
-					Jane Đu
+					{name}
 				</Text>
 				{/* <Box>
 					<Text variant='body' color={'primary'}>
@@ -41,11 +44,11 @@ const OrderDetailItem = (props: OrderDetailItemProps) => {
 			</Box>
 			<Box flex={0.5} m='s'>
 				<Text variant='heading' color={'disabled'}>
-					x{Math.floor(Math.random() * 10 + 1)}
+					x{quantity}
 				</Text>
 			</Box>
 			<Box flex={0.5} ml='s' alignItems='flex-end'>
-				{status === 0 ? null : status === 1 ? (
+				{status < 3 ? null : status === 3 ? (
 					<Loading />
 				) : (
 					<AppIcons name={'Tick-Square'} size={30} color={colors.green} />
@@ -55,7 +58,7 @@ const OrderDetailItem = (props: OrderDetailItemProps) => {
 	);
 };
 
-export default OrderDetailItem;
+export default OrderDetailsItem;
 
 const styles = StyleSheet.create({
 	container: {},

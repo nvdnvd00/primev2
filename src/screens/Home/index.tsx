@@ -2,7 +2,7 @@ import { useNavigation } from '@react-navigation/native';
 import React, { useState } from 'react';
 import { StatusBar } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Box from '~components/Box';
 import { appBorderWidth } from '~utils/constants';
 import LeftMenu from './LeftMenu';
@@ -14,6 +14,7 @@ const HomeScreen: React.FC<any> = () => {
 	const dispatch = useDispatch<any>();
 	StatusBar.setBarStyle('dark-content');
 	const [tab, setTab] = useState(1);
+	const orderManagement = useSelector((state: any) => state.orderManagement);
 	return (
 		<SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
 			<Box flex={1} bg='white' flexDirection='row'>

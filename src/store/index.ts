@@ -6,6 +6,7 @@ import { createLogger } from 'redux-logger';
 import thunk from 'redux-thunk';
 import i18next from '~translations';
 import { loginTablet } from './apiActions/Auth';
+import orderManagementReducer from './reducers/orderManagementReducer';
 
 const onRequest = (request: any, requestAction: any, store: any) => {
 	const state = store.getState();
@@ -81,6 +82,7 @@ const { requestsReducer, requestsMiddleware } = handleRequests({
 
 const reducer = combineReducers({
 	requests: requestsReducer,
+	orderManagement: orderManagementReducer,
 	// more reducer,
 });
 const composeEnhancers = compose;

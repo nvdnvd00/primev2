@@ -7,6 +7,7 @@ import Loading from '~components/Loading';
 import Text from '~components/Text';
 import { AppIcons } from '~config';
 import { Theme } from '~theme';
+import { ORDER_STATUS } from '~utils/constants';
 
 interface OrderDetailsItemProps {
 	data?: any;
@@ -33,7 +34,7 @@ const OrderDetailsItem = ({ data }: OrderDetailsItemProps) => {
 				resizeMode={ResizeMode.cover}
 			/>
 			<Box flex={1} justifyContent='space-between' px='m'>
-				<Text variant='heading' fontWeight='bold' color={'black'}>
+				<Text variant='heading' color={'black'}>
 					{name}
 				</Text>
 				{/* <Box>
@@ -48,7 +49,7 @@ const OrderDetailsItem = ({ data }: OrderDetailsItemProps) => {
 				</Text>
 			</Box>
 			<Box flex={0.5} ml='s' alignItems='flex-end'>
-				{status < 3 ? null : status === 3 ? (
+				{status < ORDER_STATUS.IN_PROCESS ? null : status === ORDER_STATUS.IN_PROCESS ? (
 					<Loading />
 				) : (
 					<AppIcons name={'Tick-Square'} size={30} color={colors.green} />

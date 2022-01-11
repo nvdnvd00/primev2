@@ -14,7 +14,6 @@ const FastImage = ({ uri, resizeMode, ...rest }: any) => {
 		// headers: { Authorization: 'someAuthToken' },
 		// priority: FImage.priority.normal,
 	};
-
 	return (
 		<FImage
 			onLoadStart={() => {

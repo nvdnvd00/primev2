@@ -1,15 +1,16 @@
 import { useTheme } from '@shopify/restyle';
-import { format } from 'date-fns';
+import { differenceInMinutes, format, getUnixTime } from 'date-fns';
 import * as React from 'react';
 import { Trans } from 'react-i18next';
+import { Image } from 'react-native';
 import Box from '~components/Box';
 import Button from '~components/Button';
 import FastImage, { ResizeMode } from '~components/FastImage';
 import Text from '~components/Text';
-import { AppIcons } from '~config';
+import { AppIcons, AppImages } from '~config';
 import { Theme } from '~theme';
 import { appBorderWidth } from '~utils/constants';
-import { getCreatedName } from '~utils/orderHelper';
+import { getCreatedName, getOverDueTime } from '~utils/orderHelper';
 
 interface OrderCardProps {
 	onSelect?: (data: any) => void;
@@ -22,7 +23,14 @@ const OrderCard = ({ onSelect, data, active }: OrderCardProps) => {
 	const cardHeight = 120;
 	const avtSize = cardHeight - spacing.m * 2;
 	//
-	const { placedTime = new Date(), createdBy = {}, id, orderItems = [] } = data;
+	const {
+		placedTime = getUnixTime(new Date()),
+		createdBy = {},
+		id,
+		orderItems = [],
+		orderNumber,
+	} = data;
+	const duration = differenceInMinutes(getOverDueTime(data), new Date());
 	return (
 		<Button
 			onPress={() => {
@@ -38,18 +46,30 @@ const OrderCard = ({ onSelect, data, active }: OrderCardProps) => {
 			flexDirection='row'
 			alignItems='center'
 			bg={active ? 'primary' : 'none'}>
-			<FastImage
-				uri={createdBy?.avatar ?? `https://i.pravatar.cc/300?t=${Math.random()}`}
-				style={{ width: avtSize, height: avtSize, borderRadius: borderRadii.l }}
-				resizeMode={ResizeMode.cover}
-			/>
+			{!!createdBy?.avatar ? (
+				<FastImage
+					uri={createdBy?.avatar}
+					style={{ width: avtSize, height: avtSize, borderRadius: borderRadii.l }}
+					resizeMode={ResizeMode.cover}
+				/>
+			) : (
+				<Image
+					source={AppImages.DefaultUser}
+					style={{
+						width: avtSize,
+						height: avtSize,
+						borderRadius: borderRadii.l,
+						resizeMode: 'cover',
+					}}
+				/>
+			)}
 			<Box flex={1} height='100%' justifyContent='space-between' p='m'>
 				<Box>
-					<Text variant='smallCaption' color={active ? 'white' : 'black'}>
+					<Text variant='caption' color={active ? 'white' : 'black'}>
 						{format(new Date(placedTime * 1000), 'MMM d, h:mm aa')}
 					</Text>
 					<Text
-						variant='body'
+						variant='heading'
 						fontWeight='bold'
 						color={active ? 'white' : 'black'}
 						mt='s'>
@@ -62,24 +82,29 @@ const OrderCard = ({ onSelect, data, active }: OrderCardProps) => {
 					</Text>
 				</Box>
 			</Box>
-			<Box width={80} ml='m' flexDirection='row' alignItems='center'>
-				<Box
-					width={35}
-					height={35}
-					borderRadius='m'
-					bg='none'
-					justifyContent='center'
-					alignItems='center'
-					m='s'>
-					<AppIcons
-						name='Time-Circle'
-						size={25}
-						color={active ? colors.white : colors.primary}
-					/>
-				</Box>
-				<Text variant='smallCaption' color={active ? 'white' : 'black'}>
-					{Math.floor(Math.random() * 1000)}m
+			<Box width={100} height='100%' justifyContent='space-between' alignItems='flex-end'>
+				<Text variant='body' color={active ? 'white' : 'black'}>
+					{orderNumber}
 				</Text>
+				<Box ml='m' flexDirection='row' alignItems='center' justifyContent='flex-end'>
+					<Box
+						width={35}
+						height={35}
+						borderRadius='m'
+						bg='none'
+						justifyContent='center'
+						alignItems='center'
+						m='none'>
+						<AppIcons
+							name='Time-Circle'
+							size={25}
+							color={active ? colors.white : colors.primary}
+						/>
+					</Box>
+					<Text variant='caption' color={active ? 'white' : 'black'}>
+						{duration >= 0 ? `${duration}m` : '--:--'}
+					</Text>
+				</Box>
 			</Box>
 		</Button>
 	);

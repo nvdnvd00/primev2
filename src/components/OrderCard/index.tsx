@@ -101,8 +101,8 @@ const OrderCard = ({ onSelect, data, active }: OrderCardProps) => {
 							color={active ? colors.white : colors.primary}
 						/>
 					</Box>
-					<Text variant='caption' color={active ? 'white' : 'black'}>
-						{duration >= 0 ? `${duration}m` : '--:--'}
+					<Text variant='caption' color={active ? 'white' : 'primary'}>
+						{duration >= 0 ? `${duration}m` : '0m'}
 					</Text>
 				</Box>
 			</Box>

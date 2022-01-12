@@ -36,8 +36,8 @@ const LeftMenu: React.FC<any> = ({ tab, setTab }: any) => {
 					alignItems='center'
 					onPress={() => setTab(1)}>
 					<AppIcons
-						name={'Paper'}
-						size={17}
+						name={'Activity'}
+						size={25}
 						color={getActive(1) ? colors.primary : colors.shadow50}
 					/>
 					<Text
@@ -57,12 +57,12 @@ const LeftMenu: React.FC<any> = ({ tab, setTab }: any) => {
 					alignItems='center'
 					onPress={() => setTab(2)}>
 					<AppIcons
-						name={'Volume-Down'}
-						size={17}
+						name={'Calendar'}
+						size={25}
 						color={getActive(2) ? colors.primary : colors.shadow50}
 					/>
 					<Text variant='body' color={getActive(2) ? 'primary' : 'shadow50'} ml='m'>
-						{t('Waiting Pickup')}
+						{t('Pre-Order')}
 					</Text>
 				</Button>
 				{/*  */}
@@ -74,12 +74,12 @@ const LeftMenu: React.FC<any> = ({ tab, setTab }: any) => {
 					alignItems='center'
 					onPress={() => setTab(3)}>
 					<AppIcons
-						name={'Send'}
-						size={17}
+						name={'Document'}
+						size={25}
 						color={getActive(3) ? colors.primary : colors.shadow50}
 					/>
 					<Text variant='body' color={getActive(3) ? 'primary' : 'shadow50'} ml='m'>
-						{t('Waiting Delivery')}
+						{t('Completed	')}
 					</Text>
 				</Button>
 				{/*  */}
@@ -92,7 +92,7 @@ const LeftMenu: React.FC<any> = ({ tab, setTab }: any) => {
 					onPress={() => setTab(4)}>
 					<AppIcons
 						name={'Setting'}
-						size={17}
+						size={25}
 						color={getActive(4) ? colors.primary : colors.shadow50}
 					/>
 					<Text variant='body' color={getActive(4) ? 'primary' : 'shadow50'} ml='m'>
@@ -109,7 +109,7 @@ const LeftMenu: React.FC<any> = ({ tab, setTab }: any) => {
 				flexDirection='row'
 				alignItems='center'
 				onPress={() => dispatch(resetRequests([loginTablet]))}>
-				<AppIcons name={'Logout'} size={17} color={colors.red} />
+				<AppIcons name={'Logout'} size={25} color={colors.red} />
 				<Text variant='body' color='red' ml='m' fontWeight='bold'>
 					{t('Logout')}
 				</Text>

@@ -52,7 +52,7 @@ const OrderDetailsItem = ({ data }: OrderDetailsItemProps) => {
 				{status < ORDER_STATUS.IN_PROCESS ? null : status === ORDER_STATUS.IN_PROCESS ? (
 					<Loading />
 				) : (
-					<AppIcons name={'Tick-Square'} size={30} color={colors.green} />
+					<AppIcons name={'Tick-Square'} size={25} color={colors.green} />
 				)}
 			</Box>
 		</Box>

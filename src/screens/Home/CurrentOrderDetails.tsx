@@ -42,7 +42,7 @@ const CurrentOrderDetails = ({}: CurrentOrderDetailsProps) => {
 		<Box flex={1} bg='white'>
 			<Box flexDirection='row' justifyContent='space-between' px='xl'>
 				<Text variant='bigHead'>{t('Details')}</Text>
-				<AppIcons name='More-Circle' color={colors.disabled} size={30} />
+				<AppIcons name='Chat' color={colors.disabled} size={25} />
 			</Box>
 			<Dashed />
 			<Box flexDirection='row' justifyContent='space-between' px='xl'>

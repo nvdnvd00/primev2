@@ -62,6 +62,9 @@ const defaultProps = {
 	height: 40,
 	justifyContent: 'center',
 	alignItems: 'center',
+	borderRadius: 'm',
+	minWidth: 40,
+	p: 'm',
 } as LayoutProps<Theme>;
 
 const Button = ({ loading, children, ...props }: BtnProps) => {

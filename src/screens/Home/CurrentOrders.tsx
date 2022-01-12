@@ -5,7 +5,7 @@ import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FlatList } from 'react-native';
 import { useDispatch } from 'react-redux';
-import { useMount } from 'react-use';
+import { useInterval, useMount } from 'react-use';
 import Box from '~components/Box';
 import OrderCard from '~components/OrderCard';
 import Text from '~components/Text';
@@ -30,6 +30,12 @@ const CurrentOrders = (props: CurrentOrdersProps) => {
 		dispatch(getInProgressOrders(id, floorId));
 		dispatch(resetRequests([getInProgressOrderDetails]));
 	});
+	useInterval(
+		() => {
+			dispatch(getInProgressOrders(id, floorId));
+		},
+		!!id && !!floorId ? 60 * 1000 : null,
+	);
 	const onItemSelect = useCallback((id: any) => {
 		dispatch(getInProgressOrderDetails(id));
 		setSelected(id);

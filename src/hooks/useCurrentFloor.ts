@@ -3,8 +3,7 @@ import { getCurrentRestaurant } from '~store/apiActions/Restaurant';
 
 const useCurrentFloor = () => {
 	const { data = {} }: any = useQuery({ type: getCurrentRestaurant });
-	const { floors = [] } = data;
-	const activeFloor = floors.find((f: any) => f.active);
+	const activeFloor = data?.floors.find((f: any) => f.active);
 	return [activeFloor ?? {}];
 };
 

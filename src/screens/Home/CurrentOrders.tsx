@@ -42,7 +42,7 @@ const CurrentOrders = (props: CurrentOrdersProps) => {
 	}, []);
 	const renderItem = ({ item, index }: any) => {
 		const active = selected === item.id;
-		return <OrderCard onSelect={onItemSelect} {...{ active, data: item }} />;
+		return <OrderCard onSelect={onItemSelect} {...{ active, data: item, index }} />;
 	};
 	return (
 		<Box flex={1} bg='white'>

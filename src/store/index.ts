@@ -18,6 +18,7 @@ const onRequest = (request: any, requestAction: any, store: any) => {
 			headers: {
 				'Content-Type': 'application/json',
 				'Accept-Language': i18next.language,
+				isTabletUser: true,
 				Authorization: `${data?.IdToken}`,
 				AccessToken: `${data?.AccessToken}`,
 				...headers,
@@ -76,8 +77,8 @@ const onError = async (error: any, requestAction: any, store: any) => {
 const { requestsReducer, requestsMiddleware } = handleRequests({
 	driver: createDriver(axios),
 	onRequest,
-	// onError,
-	// onSuccess,
+	onError,
+	onSuccess,
 });
 
 const reducer = combineReducers({

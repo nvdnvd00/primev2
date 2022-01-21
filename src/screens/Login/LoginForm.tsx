@@ -1,5 +1,4 @@
 import { useNavigation } from '@react-navigation/native';
-import { useQuery } from '@redux-requests/react';
 import { useTheme } from '@shopify/restyle';
 import * as React from 'react';
 import { useState } from 'react';
@@ -9,8 +8,10 @@ import Box from '~components/Box';
 import Button from '~components/Button';
 import Input from '~components/Input';
 import Text from '~components/Text';
+import useCurrentUser from '~hooks/useCurrentUser';
 import { loginTablet } from '~store/apiActions/Auth';
 import { Theme } from '~theme';
+import { isEmptyObj } from '~utils/helper';
 
 interface LoginFormProps {}
 
@@ -21,8 +22,7 @@ const LoginForm = ({}: LoginFormProps) => {
 	const [email, setEmail] = useState('mariam_goodwin@gmail.com');
 	const [password, setPass] = useState('Q@th3na!');
 	const { spacing, colors } = useTheme<Theme>();
-	const { loading = false }: any = useQuery({ type: loginTablet });
-
+	const [currentUser, loading] = useCurrentUser();
 	return (
 		<Box width='100%' alignItems='center'>
 			<Input
@@ -50,7 +50,7 @@ const LoginForm = ({}: LoginFormProps) => {
 				width={120}
 				m='l'
 				variant='primary'
-				loading={loading}
+				loading={loading || !isEmptyObj(currentUser)}
 				onPress={() =>
 					dispatch(
 						loginTablet({

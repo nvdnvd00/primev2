@@ -2,16 +2,16 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createDrawerNavigator, DrawerNavigationOptions } from '@react-navigation/drawer';
 import { createNavigationContainerRef, NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { useQuery } from '@redux-requests/react';
 import React, { memo } from 'react';
 import { Linking, StyleSheet } from 'react-native';
 import DeviceInfo from 'react-native-device-info';
 import CustomDrawer from '~components/Drawer';
+import useCurrentUser from '~hooks/useCurrentUser';
 import ExampleScreen from '~screens/ExampleScreen';
 import Home from '~screens/Home';
 import Login from '~screens/Login';
-import { loginTablet } from '~store/apiActions/Auth';
 import { SCREEN_NAME } from '~utils/constants';
+import { isEmptyObj, rlog } from '~utils/helper';
 
 const Drawer = createDrawerNavigator();
 const styles = StyleSheet.create({
@@ -51,11 +51,10 @@ export const navigationReset = (name: string, params: object | undefined) => {
 
 const PERSISTENCE_KEY = `navigationState.000`;
 const AppStack = memo(() => {
-	const { data = {} }: any = useQuery({ type: loginTablet });
+	const [currentUser]: any = useCurrentUser();
 
 	const [isReady, setIsReady] = React.useState(false);
 	const [initialState, setInitialState] = React.useState();
-
 	React.useEffect(() => {
 		const restoreState = async () => {
 			try {
@@ -93,7 +92,7 @@ const AppStack = memo(() => {
 			onStateChange={(state: any) =>
 				AsyncStorage.setItem(PERSISTENCE_KEY, JSON.stringify(state))
 			}>
-			{!data ? (
+			{isEmptyObj(currentUser) ? (
 				<Stack.Navigator screenOptions={{ headerShown: false }}>
 					<Stack.Screen name={SCREEN_NAME.LOGIN} component={Login} />
 				</Stack.Navigator>

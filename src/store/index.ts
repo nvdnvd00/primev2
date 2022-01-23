@@ -1,13 +1,16 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createDriver } from '@redux-requests/axios';
 import { getQuery, handleRequests } from '@redux-requests/core';
 import axios from 'axios';
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import { createLogger } from 'redux-logger';
+import { persistReducer } from 'redux-persist';
 import thunk from 'redux-thunk';
 import i18next from '~translations';
 import Reactotron from '../../ReactotronConfig';
 import { loginTablet } from './apiActions/Auth';
 import orderManagementReducer from './reducers/orderManagementReducer';
+
 const onRequest = (request: any, requestAction: any, store: any) => {
 	const state = store.getState();
 	const { data = {} } = getQuery(state, { type: loginTablet });
@@ -89,8 +92,16 @@ const reducer = combineReducers({
 const composeEnhancers = compose;
 const logger = createLogger();
 
+const persistConfig = {
+	version: 1,
+	timeout: 10000,
+	key: 'root',
+	storage: AsyncStorage,
+	whitelist: ['requests'],
+};
+
 export default createStore(
-	reducer,
+	persistReducer(persistConfig, reducer),
 	compose(
 		// @ts-ignore
 		Reactotron.createEnhancer(),

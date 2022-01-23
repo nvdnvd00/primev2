@@ -13,7 +13,7 @@
 		"trans": "i18next -c i18next-parser.config.js"
 	},
 	"dependencies": {
-		"@react-native-async-storage/async-storage": "1.15.14",
+		"@react-native-async-storage/async-storage": "^1.15.16",
 		"@react-native-masked-view/masked-view": "0.2.6",
 		"@react-navigation/drawer": "^6.1.8",
 		"@react-navigation/native": "^6.0.6",
@@ -46,6 +46,7 @@
 		"reactotron-react-native": "^5.0.1",
 		"redux": "4.1.2",
 		"redux-logger": "3.0.6",
+		"redux-persist": "^6.0.0",
 		"redux-smart-actions": "1.0.0",
 		"redux-thunk": "2.4.1"
 	},

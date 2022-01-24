@@ -5,6 +5,7 @@ import axios from 'axios';
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import { createLogger } from 'redux-logger';
 import { persistReducer } from 'redux-persist';
+import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 import thunk from 'redux-thunk';
 import i18next from '~translations';
 import Reactotron from '../../ReactotronConfig';
@@ -92,12 +93,13 @@ const reducer = combineReducers({
 const composeEnhancers = compose;
 const logger = createLogger();
 
-const persistConfig = {
+const persistConfig: any = {
 	version: 1,
 	timeout: 10000,
 	key: 'root',
 	storage: AsyncStorage,
 	whitelist: ['requests'],
+	stateReconciler: autoMergeLevel2,
 };
 
 export default createStore(

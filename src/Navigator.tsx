@@ -11,7 +11,7 @@ import ExampleScreen from '~screens/ExampleScreen';
 import Home from '~screens/Home';
 import Login from '~screens/Login';
 import { SCREEN_NAME } from '~utils/constants';
-import { isEmptyObj, rlog } from '~utils/helper';
+import { isEmptyObj } from '~utils/helper';
 
 const Drawer = createDrawerNavigator();
 const styles = StyleSheet.create({

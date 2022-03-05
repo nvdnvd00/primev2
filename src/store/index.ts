@@ -5,7 +5,6 @@ import axios from 'axios';
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import { createLogger } from 'redux-logger';
 import { persistReducer } from 'redux-persist';
-import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 import thunk from 'redux-thunk';
 import i18next from '~translations';
 import Reactotron from '../../ReactotronConfig';
@@ -84,26 +83,23 @@ const { requestsReducer, requestsMiddleware } = handleRequests({
 	onError,
 	onSuccess,
 });
+const requestsPersistConfig = {
+	version: 1,
+	key: 'requests',
+	storage: AsyncStorage,
+	whitelist: ['queries'],
+};
 
-const reducer = combineReducers({
-	requests: requestsReducer,
+const reducers = combineReducers({
+	requests: persistReducer(requestsPersistConfig, requestsReducer),
 	orderManagement: orderManagementReducer,
 	// more reducer,
 });
 const composeEnhancers = compose;
 const logger = createLogger();
 
-const persistConfig: any = {
-	version: 1,
-	timeout: 10000,
-	key: 'root',
-	storage: AsyncStorage,
-	whitelist: ['requests'],
-	stateReconciler: autoMergeLevel2,
-};
-
 export default createStore(
-	persistReducer(persistConfig, reducer),
+	reducers,
 	compose(
 		// @ts-ignore
 		Reactotron.createEnhancer(),

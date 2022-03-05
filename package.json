@@ -4,8 +4,8 @@
 	"private": true,
 	"scripts": {
 		"android": "react-native run-android",
-		"ios": "react-native run-ios --configuration Debug",
-		"ios:tablet": "react-native run-ios --simulator='iPad (9th generation)' --configuration Debug",
+		"ios": "npx react-native run-ios --configuration Debug",
+		"ios:tablet": "npx react-native run-ios --simulator='iPad (9th generation)' --configuration Debug",
 		"start": "react-native start",
 		"test": "jest",
 		"lint": "eslint . --ext .js,.jsx,.ts,.tsx",
